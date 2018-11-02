@@ -11,19 +11,28 @@ class Game extends Component {
   handleClick = event => {
     // console.log(event);
     // console.log(event.target);
-    // console.log(event.target.alt); // => abe.jpg
-
+    console.log(event.target.alt); // => abe.jpg
+    this.getImageIndex(event.target.alt);
     // // Updating the input's state
     // this.setState({
     //   [name]: value
     // });
   };
 
+  getImageIndex = (imageFileName) => {
+    for (let index=0; index<this.state.images.length; index++) {
+      if (this.state.images[index].imageFileName === imageFileName) {
+        console.log("The index is: " + index);
+        break;
+      }
+    }
+  };
+
   render() {
     return (
       <div className="container">
-      {this.state.images.map((image, i) => {
-        return <ImageBlock key={i} imageFileName={image.imageFileName} alt={image.imageFileName} imageBlockHeight="112" imageBlockWidth="40" clickHandler={this.handleClick}/>
+      {this.state.images.map((image, index) => {
+        return <ImageBlock key={index} imageFileName={image.imageFileName} alt={image.imageFileName} imageBlockHeight="112" imageBlockWidth="40" clickHandler={this.handleClick}/>
       })}
       </div>
       );
