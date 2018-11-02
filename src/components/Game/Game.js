@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import "./Game.css";
+import Navbar from "../Navbar";
+import Banner from "../Banner";
 import ImageBlock from "../ImageBlock";
 
 class Game extends Component {
@@ -21,10 +23,6 @@ class Game extends Component {
     // console.log("clickedStatus Before: " + this.state.clickedStatus);
     const clickedStatus = this.state.clickedStatus;
     clickedStatus[clickedImageIndex] = 1;
-    // let newClickedStatus = this.state.clickedStatus.slice();
-    // console.log("newClickedStatus Before: " + newClickedStatus);
-    // newClickedStatus[imageIndex] = 1;
-    // console.log("newClickedStatus After: " + newClickedStatus);
     // Updating the game's state
     this.setState({
       clickedStatus
@@ -44,10 +42,14 @@ class Game extends Component {
 
   render() {
     return (
-      <div className="container">
-      {this.state.images.map((image, index) => {
-        return <ImageBlock key={index} imageFileName={image} alt={image} imageBlockHeight="112" imageBlockWidth="40" clickHandler={this.handleClick}/>
-      })}
+      <div>
+        <Navbar />
+        <Banner />
+        <div className="container">
+        {this.state.images.map((image, index) => {
+          return <ImageBlock key={index} imageFileName={image} alt={image} imageBlockHeight="112" imageBlockWidth="40" clickHandler={this.handleClick}/>
+        })}
+        </div>
       </div>
       );
   }
