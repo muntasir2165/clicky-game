@@ -5,8 +5,8 @@ import ImageBlock from "../ImageBlock";
 const ImageBlockListing = (props) => (
 	<div className="container">
 		<div className="row">
-	    {props.images.map((image, index) => {
-	      return <ImageBlock key={index} imageFileName={image} alt={image} clickHandler={props.clickHandler}/>
+	    {props.imageFileNames.map((imageFileName, index) => {
+	      return <ImageBlock key={index} imageFileName={imageFileName} alt={imageFileName} clickHandler={props.clickHandler} />
 	    })}
 	  </div>
   </div>
