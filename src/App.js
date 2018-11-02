@@ -27,8 +27,8 @@ class App extends Component {
     // console.log(event.target); // example output => <img class="col-md-3 col-sm-4 col-xs-12 pb-4 imageBlock" src="/static/media/alchemist.ce4808c0.png" alt="alchemist.png">
     // console.log(event.target.alt); // example output => alchemist.png
     const clickedImageFileName = event.target.alt;
-    console.log("The clicked image is: " + clickedImageFileName);
-    console.log("state BEFORE: " + JSON.stringify(this.state));
+    // console.log("The clicked image is: " + clickedImageFileName);
+    // console.log("state BEFORE: " + JSON.stringify(this.state));
     const wasImageClickedBefore = this.imageClickedBefore(clickedImageFileName);
     if (wasImageClickedBefore) {
       const newTopScore = (this.state.score > this.state.topScore) ? this.state.score : this.state.topScore;
@@ -39,7 +39,7 @@ class App extends Component {
         topScore: newTopScore,
         feedback: "Game Over! You Guessed The Same Image Twice!"
       }, () => {
-        console.log("IF block state AFTER GAME OVER: " + JSON.stringify(this.state));
+        // console.log("IF block state AFTER GAME OVER: " + JSON.stringify(this.state));
       });
     } else {
       let newScore = this.state.score + 1;
@@ -52,7 +52,7 @@ class App extends Component {
           topScore: newTopScore,
           feedback: "Congrats! You Have Guessed ALL The Same Images Correctly!"
           }, () => {
-          console.log("IF block state AFTER GAME WIN: " + JSON.stringify(this.state));
+          // console.log("IF block state AFTER GAME WIN: " + JSON.stringify(this.state));
         });
       } else {
         const clickedImagesCopy = this.state.clickedImages.slice();
@@ -63,37 +63,10 @@ class App extends Component {
           score: newScore,
           feedback: "Yes! You Guessed The Image Correctly!"
           }, () => {
-          console.log("IF block state AFTER CORRECT GUESS: " + JSON.stringify(this.state));
+          // console.log("IF block state AFTER CORRECT GUESS: " + JSON.stringify(this.state));
         });
       }
     }
-
-    // else {
-    //   const clickedImagesCopy = this.state.clickedImages.slice();
-    //   clickedImagesCopy.push(clickedImageFileName);
-    //   let newScore = this.state.score + 1;
-    //   this.setState({
-    //     imageFileNames: this.shuffle(this.state.imageFileNames),
-    //     clickedImages: clickedImagesCopy,
-    //     score: newScore,
-    //     topScore: 0,
-    //     feedback: "Yes! You Guessed The Image Correctly!"
-    //   }, () => {
-    //     console.log("ELSE block state AFTER: " + JSON.stringify(this.state));
-    //     if (this.state.score === this.state.imageFileNames.length) {
-    //       const newTopScore = (this.state.score > this.state.topScore) ? this.state.score : this.state.topScore;
-    //        this.setState({
-    //         imageFileNames: this.shuffle(this.state.imageFileNames),
-    //         clickedImages: [],
-    //         score: 0,
-    //         topScore: newTopScore,
-    //         feedback: "Congrats! You Have Guessed ALL The Same Images Correctly!"
-    //       }, () => {
-    //         console.log("IF block state AFTER: " + JSON.stringify(this.state));
-    //       });
-    //     }
-    //   });
-    // }
   };
 
   imageClickedBefore = (clickedImageFileName) => {
