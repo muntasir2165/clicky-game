@@ -5,25 +5,39 @@ import ImageBlock from "../ImageBlock";
 class Game extends Component {
 
   state = {
-   images: [{imageFileName: "abe.jpg", isClicked: 0}, {imageFileName: "barney.jpg", isClicked: 0}, {imageFileName: "bart.jpg", isClicked: 0}, {imageFileName: "edna.jpg", isClicked: 0}, {imageFileName: "homer.png", isClicked: 0}, {imageFileName: "lisa.jpg", isClicked: 0}, {imageFileName: "maggie.jpg", isClicked: 0}, {imageFileName: "marge.jpg", isClicked: 0}, {imageFileName: "milhouse.png", isClicked: 0}, {imageFileName: "moe.jpg", isClicked: 0}, {imageFileName: "mr-burns.jpg", isClicked: 0}, {imageFileName: "ned.jpg", isClicked: 0}, {imageFileName: "nelson.jpeg", isClicked: 0}, {imageFileName: "ralph.png", isClicked: 0}, {imageFileName: "skinner.jpg", isClicked: 0}, {imageFileName: "wiggum.jpg", isClicked: 0}]
+   // images: ["abe.jpg, "barney.jpg, "bart.jpg, "edna.jpg, "homer.png, "lisa.jpg, "maggie.jpg, "marge.jpg, "milhouse.png, "moe.jpg, "mr-burns.jpg, "ned.jpg, "nelson.jpeg, "ralph.png, "skinner.jpg, "wiggum.jpg],
+    images: ["abe.jpg", "barney.jpg", "bart.jpg", "edna.jpg", "homer.png", "lisa.jpg", "maggie.jpg", "marge.jpg", "milhouse.png", "moe.jpg", "mr-burns.jpg", "ned.jpg", "nelson.jpeg", "ralph.png", "skinner.jpg", "wiggum.jpg"],
+    clickedStatus: new Array(16).fill(0),
+    score: 0,
+    highestScore: 0
  };
 
   handleClick = event => {
     // console.log(event);
     // console.log(event.target);
     console.log(event.target.alt); // => abe.jpg
-    this.getImageIndex(event.target.alt);
-    // // Updating the input's state
-    // this.setState({
-    //   [name]: value
-    // });
+    const clickedImageIndex = this.getClickedImageIndex(event.target.alt);
+    console.log("The index is: " + clickedImageIndex);
+    // console.log("clickedStatus Before: " + this.state.clickedStatus);
+    const clickedStatus = this.state.clickedStatus;
+    clickedStatus[clickedImageIndex] = 1;
+    // let newClickedStatus = this.state.clickedStatus.slice();
+    // console.log("newClickedStatus Before: " + newClickedStatus);
+    // newClickedStatus[imageIndex] = 1;
+    // console.log("newClickedStatus After: " + newClickedStatus);
+    // Updating the game's state
+    this.setState({
+      clickedStatus
+    });
+    // console.log("clickedStatus After: " + this.state.clickedStatus);
   };
 
-  getImageIndex = (imageFileName) => {
+  getClickedImageIndex = (imageFileName) => {
     for (let index=0; index<this.state.images.length; index++) {
-      if (this.state.images[index].imageFileName === imageFileName) {
-        console.log("The index is: " + index);
-        break;
+      if (this.state.images[index] === imageFileName) {
+        // console.log("The index is: " + index);
+        // break;
+        return index;
       }
     }
   };
@@ -32,7 +46,7 @@ class Game extends Component {
     return (
       <div className="container">
       {this.state.images.map((image, index) => {
-        return <ImageBlock key={index} imageFileName={image.imageFileName} alt={image.imageFileName} imageBlockHeight="112" imageBlockWidth="40" clickHandler={this.handleClick}/>
+        return <ImageBlock key={index} imageFileName={image} alt={image} imageBlockHeight="112" imageBlockWidth="40" clickHandler={this.handleClick}/>
       })}
       </div>
       );
