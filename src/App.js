@@ -31,12 +31,10 @@ class App extends Component {
     // console.log("state BEFORE: " + JSON.stringify(this.state));
     const wasImageClickedBefore = this.imageClickedBefore(clickedImageFileName);
     if (wasImageClickedBefore) {
-      const newTopScore = (this.state.score > this.state.topScore) ? this.state.score : this.state.topScore;
       this.setState({
         imageFileNames: this.shuffle(this.state.imageFileNames),
         clickedImages: [],
         score: 0,
-        topScore: newTopScore,
         feedback: "Game Over! You Guessed The Same Image Twice!"
       }, () => {
         // console.log("IF block state AFTER GAME OVER: " + JSON.stringify(this.state));
@@ -44,23 +42,22 @@ class App extends Component {
     } else {
       let newScore = this.state.score + 1;
       if (newScore === this.state.imageFileNames.length) {
-        const newTopScore = this.state.imageFileNames.length;
         this.setState({
           imageFileNames: this.shuffle(this.state.imageFileNames),
           clickedImages: [],
           score: 0,
-          topScore: newTopScore,
+          topScore: newScore,
           feedback: "Congrats! You Have Guessed ALL The Same Images Correctly!"
-          }, () => {
-          // console.log("IF block state AFTER GAME WIN: " + JSON.stringify(this.state));
-        });
+          });
       } else {
         const clickedImagesCopy = this.state.clickedImages.slice();
         clickedImagesCopy.push(clickedImageFileName);
+        const newTopScore = (newScore > this.state.topScore) ? newScore : this.state.topScore;
         this.setState({
           imageFileNames: this.shuffle(this.state.imageFileNames),
           clickedImages: clickedImagesCopy,
           score: newScore,
+          topScore: newTopScore,
           feedback: "Yes! You Guessed The Image Correctly!"
           }, () => {
           // console.log("IF block state AFTER CORRECT GUESS: " + JSON.stringify(this.state));
