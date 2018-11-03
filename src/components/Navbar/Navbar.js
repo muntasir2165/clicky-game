@@ -5,7 +5,7 @@ const Navbar = props => (
     <div className="bg-dark navbar-dark container-fluid text-center pt-1 pb-1">
       <div className="row">
         <div className="col-md-4">
-          <h2><a href="/" className="text-white nounderline" id="app-name">Clicky Game</a></h2>
+          <h2><a href="." className="text-white nounderline" id="app-name">Clicky Game</a></h2>
         </div>
         <div className="col-md-4 text-muted">
           <h3>{props.feedback}</h3>
