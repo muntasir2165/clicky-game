@@ -1,13 +1,13 @@
 {
-  "main.css": "https://muntasir2165.github.io/clicky-game/static/css/main.34e2e088.chunk.css",
-  "main.js": "https://muntasir2165.github.io/clicky-game/static/js/main.64cd9fbb.chunk.js",
-  "main.js.map": "https://muntasir2165.github.io/clicky-game/static/js/main.64cd9fbb.chunk.js.map",
-  "static/js/1.37f90d57.chunk.js": "https://muntasir2165.github.io/clicky-game/static/js/1.37f90d57.chunk.js",
-  "static/js/1.37f90d57.chunk.js.map": "https://muntasir2165.github.io/clicky-game/static/js/1.37f90d57.chunk.js.map",
-  "runtime~main.js": "https://muntasir2165.github.io/clicky-game/static/js/runtime~main.a9730af6.js",
-  "runtime~main.js.map": "https://muntasir2165.github.io/clicky-game/static/js/runtime~main.a9730af6.js.map",
-  "static/css/main.34e2e088.chunk.css.map": "https://muntasir2165.github.io/clicky-game/static/css/main.34e2e088.chunk.css.map",
-  "index.html": "https://muntasir2165.github.io/clicky-game/index.html",
-  "precache-manifest.1e31a0408af0d3103d0fba15d5dff386.js": "https://muntasir2165.github.io/clicky-game/precache-manifest.1e31a0408af0d3103d0fba15d5dff386.js",
-  "service-worker.js": "https://muntasir2165.github.io/clicky-game/service-worker.js"
+  "main.css": "/clicky-game/static/css/main.2a943c6c.chunk.css",
+  "main.js": "/clicky-game/static/js/main.a37c2669.chunk.js",
+  "main.js.map": "/clicky-game/static/js/main.a37c2669.chunk.js.map",
+  "static/js/1.37f90d57.chunk.js": "/clicky-game/static/js/1.37f90d57.chunk.js",
+  "static/js/1.37f90d57.chunk.js.map": "/clicky-game/static/js/1.37f90d57.chunk.js.map",
+  "runtime~main.js": "/clicky-game/static/js/runtime~main.6acb6692.js",
+  "runtime~main.js.map": "/clicky-game/static/js/runtime~main.6acb6692.js.map",
+  "static/css/main.2a943c6c.chunk.css.map": "/clicky-game/static/css/main.2a943c6c.chunk.css.map",
+  "index.html": "/clicky-game/index.html",
+  "precache-manifest.52a15a56ffc88b8abb7aa82fa5711fb4.js": "/clicky-game/precache-manifest.52a15a56ffc88b8abb7aa82fa5711fb4.js",
+  "service-worker.js": "/clicky-game/service-worker.js"
 }
